@@ -1,51 +1,63 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const FooterContainer = styled.footer`
-  background-color: #f1f1f1;
-  padding: 2rem 1rem;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #444;
-  margin-top: auto;
+    background-color: #f1f1f1;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #444;
+    margin-top: auto;
+    border-radius: 12px; /* optional: smooth corners */
+    z-index: 100;
+    margin: 5px;
 `;
 
 const SocialLinks = styled.div`
-  margin: 1rem 0;
+    margin: 1rem 0;
 
-  a {
-    color: #0077cc;
-    margin: 0 0.75rem;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+    a {
+        color: #261FB3;
+        margin: 0 0.75rem;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
 
-    &:hover {
-      color: #004b80;
+        &:hover {
+            color: #161179;
+        }
     }
-  }
 `;
 
 const Divider = styled.hr`
-  border: none;
-  height: 1px;
-  background-color: #ddd;
-  margin: 1.5rem 0;
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 1.5rem 0;
 `;
 
 const BackToTop = styled.a`
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: #0077cc;
-  cursor: pointer;
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #261FB3;
+    cursor: pointer;
 
-  &:hover {
-    text-decoration: underline;
-  }
+    &:hover {
+        text-decoration: underline;
+    }
 `;
 
 function Footer() {
     const year = new Date().getFullYear();
+
+    // Scroll to top functionality
+    const handleScrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth', // Adds smooth scroll effect
+        });
+    };
 
     return (
         <FooterContainer>
@@ -82,7 +94,7 @@ function Footer() {
                 © {year} Your Name. Built with React & styled-components. Deployed on GitHub Pages.
             </p>
 
-            <BackToTop href="#top">↑ Back to top</BackToTop>
+            <BackToTop onClick={handleScrollToTop}>↑ Back to top</BackToTop>
         </FooterContainer>
     );
 }

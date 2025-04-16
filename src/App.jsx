@@ -25,6 +25,7 @@ const Main = styled.main`
 function App() {
     return (
         <Router>
+
             <Container>
                 <Header />
                 <Main>

@@ -45,7 +45,7 @@ const Card = styled.div`
     display: inline-block;
     font-size: 0.85rem;
     background: #eef3f8;
-    color: #0077cc;
+    color: #261FB3;
     padding: 2px 8px;
     border-radius: 4px;
     margin-right: 5px;
@@ -55,7 +55,7 @@ const Card = styled.div`
   a {
     font-size: 0.9rem;
     margin-right: 1rem;
-    color: #0077cc;
+    color: #261FB3;
     text-decoration: none;
 
     &:hover {

@@ -25,7 +25,7 @@ const Summary = styled.div`
 
 const Button = styled.a`
   display: inline-block;
-  background-color: #0077cc;
+  background-color: #261FB3;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
@@ -34,7 +34,7 @@ const Button = styled.a`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #005fa3;
+    background-color: #161179;
   }
 `;
 
