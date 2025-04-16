@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Menu as MenuIcon, X as CloseIcon } from 'lucide-react'; // optional: or use Unicode/other icons
 
 const NavBar = styled.header`
     background: rgba(225, 225, 225, 0.1);
@@ -14,8 +16,7 @@ const NavBar = styled.header`
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    top: 10px; /* was 0, changed to 10px for spacing from top */
-    margin-top: 0px; /* optional: gives spacing when not sticky too */
+    top: 10px;
     z-index: 100;
 
     @media (max-width: 768px) {
@@ -24,8 +25,6 @@ const NavBar = styled.header`
         padding: 1rem;
     }
 `;
-
-
 
 const Brand = styled(Link)`
     font-size: 1.5rem;
@@ -37,6 +36,19 @@ const Brand = styled(Link)`
 
     &:hover {
         color: #161179;
+    }
+`;
+
+const Hamburger = styled.div`
+    display: none;
+    cursor: pointer;
+    z-index: 110;
+
+    @media (max-width: 768px) {
+        display: block;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
     }
 `;
 
@@ -60,8 +72,10 @@ const NavLinks = styled.nav`
 
     @media (max-width: 768px) {
         flex-direction: column;
-        margin-top: 0.75rem;
         width: 100%;
+        margin-top: 0.75rem;
+        display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+
         a {
             padding: 0.5rem 0;
             width: 100%;
@@ -70,15 +84,20 @@ const NavLinks = styled.nav`
 `;
 
 function Header() {
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return (
         <NavBar as={motion.header} initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
             <Brand to="/">Samir54883</Brand>
-            <NavLinks>
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/projects">Projects</Link>
-                <Link to="/resume">Resume</Link>
-                <Link to="/contact">Contact</Link>
+            <Hamburger onClick={() => setMenuOpen(prev => !prev)}>
+                {menuOpen ? <CloseIcon size={28} /> : <MenuIcon size={28} />}
+            </Hamburger>
+            <NavLinks isOpen={menuOpen}>
+                <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+                <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+                <Link to="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
+                <Link to="/resume" onClick={() => setMenuOpen(false)}>Resume</Link>
+                <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
             </NavLinks>
         </NavBar>
     );
