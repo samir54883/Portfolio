@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = styled.header`
   background: #fff;
-  padding: 1.5rem 2rem;
+  padding: 0.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-between;
