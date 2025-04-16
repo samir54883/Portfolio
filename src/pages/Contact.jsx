@@ -31,7 +31,7 @@ const Form = styled.form`
   }
 
   button {
-    background-color: #0077cc;
+    background-color: #261FB3;
     color: white;
     border: none;
     padding: 0.9rem;
@@ -41,7 +41,7 @@ const Form = styled.form`
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: #005fa3;
+      background-color: #161179;
     }
   }
 `;
@@ -53,7 +53,7 @@ const Socials = styled.div`
   a {
     margin: 0 1rem;
     font-size: 1.25rem;
-    color: #0077cc;
+    color: #261FB3;
     text-decoration: none;
 
     &:hover {
